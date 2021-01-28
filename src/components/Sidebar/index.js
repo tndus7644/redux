@@ -8,7 +8,7 @@ const Sidebar = () => {
     const {sidebar} = useSelector(state => state);
 
     return(
-        <Container className={cn("sidebar", {show:sidebar})}>
+        <Container className={cn("sidebar", {toggle:sidebar})}>
             Sidebar
         </Container>
     )
@@ -24,7 +24,7 @@ const Container = styled.div`
   box-shadow: 0 1px 10px rgba(0,0,0,0.1);
   transition: 0.3s;
   transform: translateX(-120%);
-  &.show{
+  &.toggle{
     transform: none;
   }
 `;
