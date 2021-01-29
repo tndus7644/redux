@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import {GlobalStyle} from "./Styled/Common.Styled";
 import Sidebar from "./components/Sidebar";
 import {useSelector} from "react-redux";
+import Routes from "./Router/Routes";
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
             <GlobalStyle/>
             <Header/>
             <Sidebar/>
-            <Home/>
+            <Routes/>
         </Container>
     )
 }
