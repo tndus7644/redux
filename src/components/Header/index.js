@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import {AiOutlineMenu} from "react-icons/ai";
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/reducer";
+import {useHistory} from "react-router";
 
 const Header = () => {
+
 
     const dispatch = useDispatch();
     const {sidebar} = useSelector(state => state);
@@ -13,21 +15,26 @@ const Header = () => {
         dispatch(Action.Creators.handleSidebar(!sidebar))
     }
 
+    const history = useHistory();
+    const navigate = (url) => {
+        history.push(url)
+    }
+
     return (
-        <Container>
+        <Container className={'Header'}>
             <Logo>Logo</Logo>
             <Gnb>
                 <Nav>
-                    <NavItem>
+                    <NavItem onClick={() => navigate("/")}>
                         Home
                     </NavItem>
-                    <NavItem>
+                    <NavItem onClick={() => navigate("/todos")}>
                         Todos
                     </NavItem>
-                    <NavItem>
+                    <NavItem onClick={() => navigate("/photos")}>
                         Photos
                     </NavItem>
-                    <NavItem>
+                    <NavItem onClick={() => navigate("/videos")}>
                         Videos
                     </NavItem>
                 </Nav>
