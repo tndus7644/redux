@@ -1,15 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 
 const Home = () => {
 
+    const [count, setCount] = useState(5);
+
+    const countUp = () => {
+        setCount(v => v + 1);
+    }
+
+    const countDown = () => {
+        setCount(v => v - 1);
+    }
+
     return (
         <Container className={'Home'}>
             <h1>Count</h1>
-            <Count>5</Count>
+            <Count>{count}</Count>
             <ButtonGroup>
-                <Button>UP</Button>
-                <Button>DOWN</Button>
+                <Button onClick={countUp}>UP</Button>
+                <Button onClick={countDown}>DOWN</Button>
             </ButtonGroup>
         </Container>
     )
@@ -28,6 +38,8 @@ const ButtonGroup = styled.div`
 
 const Count = styled.div`
     margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 const Button = styled.div`
@@ -48,5 +60,7 @@ const Button = styled.div`
     margin-left: 20px;
   }
 `;
+
+
 
 export default Home;
