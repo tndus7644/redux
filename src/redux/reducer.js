@@ -4,12 +4,12 @@ const initialState = {
 
 export const Action = {
     Types: {
-        HANDLE_SIDEBAR: 'HANDLE_SIDEBAR'
+        UPDATE_STATE: 'UPDATE_STATE'
     },
     Creators: {
-        handleSidebar: (payload) => ({
-            type: Action.Types.HANDLE_SIDEBAR,
-            payload
+        updateState: (props) => ({
+            type: Action.Types.UPDATE_STATE,
+            props
         })
     }
 }
@@ -19,10 +19,10 @@ const reducer = (state = initialState, action) => {
         default: {
             return state;
         }
-        case Action.Types.HANDLE_SIDEBAR: {
+        case Action.Types.UPDATE_STATE: {
             return {
                 ...state,
-                sidebar: action.payload
+                ...action.props
             }
         }
     }

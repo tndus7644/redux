@@ -12,7 +12,9 @@ const Header = () => {
     const {sidebar} = useSelector(state => state);
     console.log("sidebar", sidebar)
     const handleSidebar = () => {
-        dispatch(Action.Creators.handleSidebar(!sidebar))
+        dispatch(Action.Creators.updateState({
+            sidebar:!sidebar
+        }))
     }
 
     const history = useHistory();
